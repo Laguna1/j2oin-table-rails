@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
-
+<h1>User Page</h1>
 <p>
-  <strong>Name:</strong>
+  <strong>Category name:</strong>
   <%= @category.name %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% @category.users.each do |user| %>
+  <ul>
+    <li><%= user.fullname %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit Category', edit_category_path(@category) %><br />
+<%= link_to 'All Users', users_path %> <br />
+<%= link_to 'All Categories', categories_path %>
